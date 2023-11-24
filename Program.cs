@@ -45,7 +45,7 @@ namespace Lommeregner
         private static void DisplayCalculator()
         {
             Console.SetCursorPosition(0, 15);
-            //multidimensional array, containing the buttons for my calculator
+            //multidimensional array, containing a calculator figure
             string[,] calculatorButtons = {
             {"7", "8", "9", "/"},
             {"4", "5", "6", "*"},
@@ -91,7 +91,7 @@ namespace Lommeregner
                     numbers = GetNumbersForCalculation("-");
                     foreach (var number in numbers)
                     {
-                        if (result == 0)
+                        if (number == numbers.First())
                             result = number;
                         else
                             result = result - number;
@@ -101,7 +101,7 @@ namespace Lommeregner
                     numbers = GetNumbersForCalculation("*");
                     foreach (var number in numbers)
                     {
-                        if (result == 0)
+                        if (number == numbers.First())
                             result = number;
                         else
                             result = result * number;
@@ -111,7 +111,7 @@ namespace Lommeregner
                     numbers = GetNumbersForCalculation("/");
                     foreach (var number in numbers)
                     {
-                        if (result == 0)
+                        if (number == numbers.First())
                             result = number;
                         else
                             result = result / number;
@@ -124,7 +124,7 @@ namespace Lommeregner
 
                     break;
                 case 6:
-                    //TODO, Find a formula that returns a different answer to life than 42
+                    //TODO, Find and implement a formula that returns a different answer to life than 42
                     throw new NotImplementedException();
                 default:
                     Console.WriteLine("error");
