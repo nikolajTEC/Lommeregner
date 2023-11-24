@@ -21,6 +21,23 @@ namespace Lommeregner
             {
                 Calculation(response);
             }
+            else
+            {
+                Console.WriteLine("Ugyldigt input, vælg venligst en gyldig mulighed.");
+            }
+
+            Console.WriteLine("tryk en vilkårlig tast for at fortsætte, eller s for at slutte");
+            string userInput = Console.ReadLine().ToLower();
+            if (userInput == "s")
+            {
+                return;
+            }
+            else
+            {
+                Console.Clear();
+                Main(args);
+            }
+
         }
         /// <summary>
         /// multidimensional array, created to show a calculator figure.
@@ -58,8 +75,6 @@ namespace Lommeregner
         /// <exception cref="NotImplementedException"></exception>
         private static void Calculation(double response)
         {
-            Console.WriteLine("Skriv tal du vil have regnet ud");
-
             double result = 0;
             List<double> numbers;
             switch (response)
@@ -103,6 +118,7 @@ namespace Lommeregner
                     }
                     break;
                 case 5:
+                    Console.WriteLine("Skriv hvor mange cm du vil have målt i bananer");
                     double cm = GetUserInput();
                     result = cm / banana;
 
@@ -130,6 +146,7 @@ namespace Lommeregner
             while (!finished)
             {
                 //shows the numbers in my list, seperated by the symbol used for calculation for better readability
+                Console.SetCursorPosition(5, 5);
                 Console.Write($"\r{string.Join($" {symbol} ", numbers)} {symbol} ");
                 string input = Console.ReadLine().ToLower();
                 if (input == "f")
